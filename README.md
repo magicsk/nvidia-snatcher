@@ -140,13 +140,16 @@ Here is a list of variables that you can use to customize your newly copied `.en
 | Best Buy (CA) | `bestbuy-ca`|
 | EVGA | `evga`|
 | EVGA (EU) | `evga-eu`|
+| Kabum (BR) | `kabum`|
 | Micro Center | `microcenter`|
 | Newegg | `newegg`|
 | Newegg (CA) | `newegg-ca`|
 | Nvidia | `nvidia`|
 | Nvidia (API) | `nvidia-api`|
 | Office Depot | `officedepot`|
+| Pichau (BR) | `pichau`|
 | PNY | `pny`|
+| Terabyte (BR) | `terabyte`|
 | Zotac | `zotac`|
 
 <details>
