@@ -10,6 +10,7 @@ import {BestBuyCa} from './bestbuy-ca';
 import {Config} from '../../config';
 import {Evga} from './evga';
 import {EvgaEu} from './evga-eu';
+import {Kabum} from './kabum';
 import {Logger} from '../../logger';
 import {MicroCenter} from './microcenter';
 import {Newegg} from './newegg';
@@ -17,8 +18,10 @@ import {NeweggCa} from './newegg-ca';
 import {Nvidia} from './nvidia';
 import {NvidiaApi} from './nvidia-api';
 import {OfficeDepot} from './officedepot';
+import {Pichau} from './pichau';
 import {Pny} from './pny';
 import {Store} from './store';
+import {Terabyte} from './terabyte';
 import {Zotac} from './zotac';
 
 const masterList = new Map([
@@ -33,13 +36,16 @@ const masterList = new Map([
 	[BestBuyCa.name, BestBuyCa],
 	[Evga.name, Evga],
 	[EvgaEu.name, EvgaEu],
+	[Kabum.name, Kabum],
 	[MicroCenter.name, MicroCenter],
 	[Newegg.name, Newegg],
 	[NeweggCa.name, NeweggCa],
 	[Nvidia.name, Nvidia],
 	[NvidiaApi.name, NvidiaApi],
 	[OfficeDepot.name, OfficeDepot],
+	[Pichau.name, Pichau],
 	[Pny.name, Pny],
+	[Terabyte.name, Terabyte],
 	[Zotac.name, Zotac]
 ]);
 
