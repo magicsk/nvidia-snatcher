@@ -1,6 +1,7 @@
 import {Store} from './store';
 
 export const Pichau: Store = {
+	backoffStatusCodes: [403, 503],
 	labels: {
 		inStock: {
 			container: '#buttonAddToCartTrigger',
@@ -45,5 +46,6 @@ export const Pichau: Store = {
 			url: 'https://www.pichau.com.br/hardware/placa-de-video/placa-de-video-zotac-geforce-rtx-3080-trinity-10gb-320-bit-zt-a30800d-10p'
 		}
 	],
-	name: 'pichau'
+	name: 'pichau',
+	waitUntil: 'networkidle0'
 };
