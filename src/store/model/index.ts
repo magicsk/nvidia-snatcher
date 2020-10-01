@@ -11,6 +11,7 @@ import {Config} from '../../config';
 import {Evga} from './evga';
 import {EvgaEu} from './evga-eu';
 import {Kabum} from './kabum';
+import {Gamestop} from './gamestop';
 import {Logger} from '../../logger';
 import {MicroCenter} from './microcenter';
 import {Newegg} from './newegg';
@@ -37,6 +38,7 @@ const masterList = new Map([
 	[Evga.name, Evga],
 	[EvgaEu.name, EvgaEu],
 	[Kabum.name, Kabum],
+	[Gamestop.name, Gamestop],
 	[MicroCenter.name, MicroCenter],
 	[Newegg.name, Newegg],
 	[NeweggCa.name, NeweggCa],
