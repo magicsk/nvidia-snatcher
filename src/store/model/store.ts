@@ -8,7 +8,7 @@ export type Element = {
 export type Series = 'test:series' | '3070' | '3080' | '3090';
 
 export type Link = {
-	brand: 'test:brand' | 'asus' | 'colorful' | 'evga' | 'galax' | 'gigabyte' | 'inno3d' | 'kfa2' | 'palit' | 'pny' | 'msi' | 'nvidia' | 'zotac';
+	brand: 'test:brand' | 'asus' | 'colorful' | 'evga' | 'gainward' |'galax' | 'gigabyte' | 'inno3d' | 'kfa2' | 'palit' | 'pny' | 'msi' | 'nvidia' | 'zotac';
 	series: Series;
 	model: string;
 	url: string;
