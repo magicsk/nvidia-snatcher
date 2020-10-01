@@ -4,7 +4,7 @@ export const Terabyte: Store = {
 	labels: {
 		inStock: {
 			container: '.tbt_comprar',
-			text: ['Comprar']
+			text: ['']
 		}
 	},
 	links: [
@@ -127,6 +127,12 @@ export const Terabyte: Store = {
 			model: 'xlr8-gaming-rgb-xmpb',
 			series: '3080',
 			url: 'https://www.terabyteshop.com.br/produto/15092/placa-de-video-pny-geforce-rtx-3080-xlr8-gaming-epic-x-rgb-triple-10gb-gddr6x-320bit-vcg308010tfxmpb'
+		},
+		{
+			brand: 'gainward',
+			model: 'phoenix',
+			series: '3080',
+			url: 'https://www.terabyteshop.com.br/produto/15311/placa-de-video-gainward-geforce-rtx-3080-phoenix-10gb-gddr6-320bit-ned3080019ia-132ax'
 		},
 		{
 			brand: 'pny',

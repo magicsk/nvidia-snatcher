@@ -4,8 +4,8 @@ export const Pichau: Store = {
 	backoffStatusCodes: [403, 503],
 	labels: {
 		inStock: {
-			container: '#buttonAddToCartTrigger',
-			text: ['Comprar']
+			container: '.button-action-to-cart',
+			text: ['']
 		}
 	},
 	links: [
