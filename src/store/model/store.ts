@@ -5,6 +5,11 @@ export type Element = {
 	text: string[];
 };
 
+export type Pricing = {
+	container: string;
+	euroFormat?: boolean;
+};
+
 export type Series = 'test:series' | '3070' | '3080' | '3090';
 
 export type Link = {
@@ -25,6 +30,7 @@ export type Labels = {
 	container?: string;
 	inStock?: LabelQuery;
 	outOfStock?: LabelQuery;
+	maxPrice?: Pricing;
 };
 
 export type StatusCodeRangeArray = Array<(number | [number, number])>;
@@ -40,7 +46,8 @@ export type Store = {
 	links: Link[];
 	linksBuilder?: {
 		builder: (docElement: cheerio.Cheerio, series: Series) => Link[];
-		urls: Array<{series: Series; url: string}>;
+		ttl?: number;
+		urls: Array<{series: Series; url: string | string[]}>;
 	};
 	labels: Labels;
 	name: string;

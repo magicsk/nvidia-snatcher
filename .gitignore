@@ -5,10 +5,13 @@
 build/
 node_modules/
 
-.env
+.env*
+.*env
+!.env-example
 success-*.png
 
 *.wav
 *.mp3
 *.flac
 *.exe
+desktop.ini

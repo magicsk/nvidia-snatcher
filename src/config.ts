@@ -1,10 +1,11 @@
 import {banner} from './banner';
-console.log(banner);
 
-import {config} from 'dotenv';
+console.info(banner);
+
+import {config as config_} from 'dotenv';
 import path from 'path';
 
-config({path: path.resolve(__dirname, '../.env')});
+config_({path: path.resolve(__dirname, '../.env')});
 
 /**
  * Returns environment variable, given array, or default array.
@@ -46,16 +47,78 @@ function envOrNumber(environment: string | undefined, number?: number): number {
 	return environment ? Number(environment) : (number ?? 0);
 }
 
+/**
+ * Returns environment variable, given number, or default number,
+ * while handling .env input errors for a Min/Max pair.
+ * .env errors handled:
+ * - Min/Max swapped (Min larger than Max, Max smaller than Min)
+ * - Min larger than default Max when no Max defined
+ * - Max smaller than default Min when no Min defined
+ *
+ * @param environmentMin Min environment variable of Min/Max pair.
+ * @param environmentMax Max environment variable of Min/Max pair.
+ * @param number Default number. If not set, is `0`.
+ */
+function envOrNumberMin(environmentMin: string | undefined, environmentMax: string | undefined, number?: number) {
+	if (environmentMin || environmentMax) {
+		if (environmentMin && environmentMax) {
+			return Number(Number(environmentMin) < Number(environmentMax) ? environmentMin : environmentMax);
+		}
+
+		if (environmentMax) {
+			return Number(environmentMax) < (number ?? 0) ? Number(environmentMax) : (number ?? 0);
+		}
+
+		if (environmentMin) {
+			return Number(environmentMin);
+		}
+	}
+
+	return number ?? 0;
+}
+
+/**
+ * Returns environment variable, given number, or default number,
+ * while handling .env input errors for a Min/Max pair.
+ * .env errors handled:
+ * - Min/Max swapped (Min larger than Max, Max smaller than Min)
+ * - Min larger than default Max when no Max defined
+ * - Max smaller than default Min when no Min defined
+ *
+ * @param environmentMin Min environment variable of Min/Max pair.
+ * @param environmentMax Max environment variable of Min/Max pair.
+ * @param number Default number. If not set, is `0`.
+ */
+function envOrNumberMax(environmentMin: string | undefined, environmentMax: string | undefined, number?: number) {
+	if (environmentMin || environmentMax) {
+		if (environmentMin && environmentMax) {
+			return Number(Number(environmentMin) < Number(environmentMax) ? environmentMax : environmentMax);
+		}
+
+		if (environmentMin) {
+			return Number(environmentMin) > (number ?? 0) ? Number(environmentMin) : (number ?? 0);
+		}
+
+		if (environmentMax) {
+			return Number(environmentMax);
+		}
+	}
+
+	return number ?? 0;
+}
+
 const browser = {
 	isHeadless: envOrBoolean(process.env.HEADLESS),
 	isTrusted: envOrBoolean(process.env.BROWSER_TRUSTED, false),
 	lowBandwidth: envOrBoolean(process.env.LOW_BANDWIDTH, false),
-	maxBackoff: envOrNumber(process.env.PAGE_BACKOFF_MAX, 3600000),
-	maxSleep: envOrNumber(process.env.PAGE_SLEEP_MAX, 10000),
-	minBackoff: envOrNumber(process.env.PAGE_BACKOFF_MIN, 10000),
-	minSleep: envOrNumber(process.env.PAGE_SLEEP_MIN, 5000),
+	maxBackoff: envOrNumberMax(process.env.PAGE_BACKOFF_MIN, process.env.PAGE_BACKOFF_MAX, 3600000),
+	maxSleep: envOrNumberMax(process.env.PAGE_SLEEP_MIN, process.env.PAGE_SLEEP_MAX, 10000),
+	minBackoff: envOrNumberMin(process.env.PAGE_BACKOFF_MIN, process.env.PAGE_BACKOFF_MAX, 10000),
+	minSleep: envOrNumberMin(process.env.PAGE_SLEEP_MIN, process.env.PAGE_SLEEP_MAX, 5000),
 	open: envOrBoolean(process.env.OPEN_BROWSER)
 };
+
+const docker = envOrBoolean(process.env.DOCKER);
 
 const logLevel = envOrString(process.env.LOG_LEVEL, 'info');
 
@@ -67,12 +130,15 @@ const notifications = {
 	},
 	email: {
 		password: envOrString(process.env.EMAIL_PASSWORD),
+		smtpAddress: envOrString(process.env.SMTP_ADDRESS),
+		smtpPort: envOrNumber(process.env.SMTP_PORT, 25),
 		to: envOrString(process.env.EMAIL_TO, envOrString(process.env.EMAIL_USERNAME)),
 		username: envOrString(process.env.EMAIL_USERNAME)
 	},
 	phone: {
 		availableCarriers: new Map([
 			['att', 'txt.att.net'],
+			['attgo', 'mms.att.net'],
 			['bell', 'txt.bell.ca'],
 			['fido', 'fido.ca'],
 			['google', 'msg.fi.google.com'],
@@ -90,7 +156,7 @@ const notifications = {
 		number: envOrString(process.env.PHONE_NUMBER)
 	},
 	playSound: envOrString(process.env.PLAY_SOUND),
-	pushBulletApiKey: envOrString(process.env.PUSHBULLET),
+	pushbullet: envOrString(process.env.PUSHBULLET),
 	pushover: {
 		priority: envOrString(process.env.PUSHOVER_PRIORITY),
 		token: envOrString(process.env.PUSHOVER_TOKEN),
@@ -127,19 +193,31 @@ const nvidia = {
 const page = {
 	height: 1080,
 	inStockWaitTime: envOrNumber(process.env.IN_STOCK_WAIT_TIME),
-	navigationTimeout: envOrNumber(process.env.PAGE_TIMEOUT, 30000),
 	screenshot: envOrBoolean(process.env.SCREENSHOT),
+	timeout: envOrNumber(process.env.PAGE_TIMEOUT, 30000),
 	userAgent: envOrString(process.env.USER_AGENT, 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'),
 	width: 1920
 };
 
 const proxy = {
-	address: envOrString(process.env.PROXY_ADDRESS, ''),
+	address: envOrString(process.env.PROXY_ADDRESS),
 	port: envOrNumber(process.env.PROXY_PORT, 80)
 };
 
+// Check for deprecated configuration values
+if (process.env.MAX_PRICE) {
+	console.warn('ℹ MAX_PRICE is deprecated, please use MAX_PRICE_SERIES_{{series}}');
+}
+
 const store = {
 	country: envOrString(process.env.COUNTRY, 'usa'),
+	maxPrice: {
+		series: {
+			3070: envOrNumber(process.env.MAX_PRICE_3070),
+			3080: envOrNumber(process.env.MAX_PRICE_3080),
+			3090: envOrNumber(process.env.MAX_PRICE_3090)
+		}
+	},
 	microCenterLocation: envOrString(process.env.MICROCENTER_LOCATION, 'web'),
 	showOnlyBrands: envOrArray(process.env.SHOW_ONLY_BRANDS),
 	showOnlyModels: envOrArray(process.env.SHOW_ONLY_MODELS),
@@ -147,8 +225,9 @@ const store = {
 	stores: envOrArray(process.env.STORES, ['nvidia'])
 };
 
-export const Config = {
+export const config = {
 	browser,
+	docker,
 	logLevel,
 	notifications,
 	nvidia,
