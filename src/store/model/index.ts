@@ -12,7 +12,9 @@ import {BAndH} from './bandh';
 import {BestBuy} from './bestbuy';
 import {BestBuyCa} from './bestbuy-ca';
 import {Box} from './box';
+import {Caseking} from './caseking';
 import {Ccl} from './ccl';
+import {Coolblue} from './coolblue';
 import {Currys} from './currys';
 import {Ebuyer} from './ebuyer';
 import {Evga} from './evga';
@@ -31,6 +33,8 @@ import {OfficeDepot} from './officedepot';
 import {Overclockers} from './overclockers';
 import {Pichau} from './pichau';
 import {Pny} from './pny';
+import {ProshopDE} from './proshop-de';
+import {ProshopDK} from './proshop-dk';
 import {Scan} from './scan';
 import {Store} from './store';
 import {Terabyte} from './terabyte';
@@ -55,7 +59,9 @@ const masterList = new Map([
 	[BestBuy.name, BestBuy],
 	[BestBuyCa.name, BestBuyCa],
 	[Box.name, Box],
+	[Caseking.name, Caseking],
 	[Ccl.name, Ccl],
+	[Coolblue.name, Coolblue],
 	[Currys.name, Currys],
 	[Ebuyer.name, Ebuyer],
 	[Evga.name, Evga],
@@ -73,6 +79,8 @@ const masterList = new Map([
 	[OfficeDepot.name, OfficeDepot],
 	[Overclockers.name, Overclockers],
 	[Pichau.name, Pichau],
+	[ProshopDE.name, ProshopDE],
+	[ProshopDK.name, ProshopDK],
 	[Pny.name, Pny],
 	[Terabyte.name, Terabyte],
 	[Scan.name, Scan],
