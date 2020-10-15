@@ -39,10 +39,10 @@ export const Kabum: Store = {
 			url: 'https://www.kabum.com.br/produto/127410/placa-de-v-deo-msi-nvidia-geforce-rtx-3080-ventus-3x-10g-oc-gddr6x'
 		},
 		{
-			brand: 'zotac',
-			model: 'trinity-oc',
+			brand: 'gainward',
+			model: 'phoenix',
 			series: '3080',
-			url: 'https://www.kabum.com.br/produto/127513/placa-de-v-deo-zotac-geforce-rtx-3080-zt-a30800j-10p'
+			url: 'https://www.kabum.com.br/produto/128775/placa-de-v-deo-gainward-nvidia-geforce-nv-rtx3080-10gb-gddr6x-ned3080019ia-132ax'
 		},
 		{
 			brand: 'evga',
@@ -52,15 +52,21 @@ export const Kabum: Store = {
 		},
 		{
 			brand: 'gigabyte',
-			model: 'gaming-oc',
+			model: 'eagle-oc',
 			series: '3080',
-			url: 'https://www.kabum.com.br/produto/128077/placa-de-v-deo-gigabyte-nvidia-geforce-rtx-3080-10gb-gddr6x-gv-n3080gaming-oc-10gd'
+			url: 'https://www.kabum.com.br/produto/128078/placa-de-v-deo-gigabyte-nvidia-geforce-rtx-3080-10gb-gddr6x-gv-n3080eagle-oc-10gd'
 		},
 		{
 			brand: 'msi',
 			model: 'gaming-x-trio',
 			series: '3090',
 			url: 'https://www.kabum.com.br/produto/127407/placa-de-v-deo-msi-nvidia-geforce-rtx-3090-gaming-x-trio-24g-gddr6x-'
+		},
+		{
+			brand: 'msi',
+			model: 'ventus-3x-oc',
+			series: '3090',
+			url: 'https://www.kabum.com.br/produto/127408/placa-de-v-deo-msi-nvidia-geforce-rtx-3090-ventus-3x-24g-oc-gddr6x'
 		},
 		{
 			brand: 'asus',
@@ -70,15 +76,21 @@ export const Kabum: Store = {
 		},
 		{
 			brand: 'asus',
+			model: 'tuf',
+			series: '3090',
+			url: 'https://www.kabum.com.br/produto/121139/placa-de-v-deo-asus-nvidia-geforce-rtx3090-24gb-gddr6-tuf-rtx3090-24g-gaming'
+		},
+		{
+			brand: 'asus',
 			model: 'rog-strix',
 			series: '3090',
 			url: 'https://www.kabum.com.br/produto/128026/placa-de-v-deo-asus-nvidia-geforce-rtx-3090-24gb-gddr6x-rog-strix-rtx3090-o24g-gaming-'
 		},
 		{
-			brand: 'gigabyte',
-			model: 'gaming',
+			brand: 'gainward',
+			model: 'phoenix',
 			series: '3090',
-			url: 'https://www.kabum.com.br/produto/128199/placa-de-v-deo-gigabyte-nvidia-geforce-rtx-3090-gaming-oc-24g-gddr6x-gv-n3090gaming-oc-24gd'
+			url: 'https://www.kabum.com.br/produto/128776/placa-de-v-deo-gainward-nvidia-geforce-nv-rtx3090-24gb-gddr6x-ned3090019sb-132bx'
 		},
 		{
 			brand: 'evga',
