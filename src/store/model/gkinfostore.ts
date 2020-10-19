@@ -15,12 +15,6 @@ export const GKInfoStore: Store = {
 			url: 'https://www.gkinfostore.com.br/placa-de-video-pcyes-geforce-gtx-1660-super-graffiti-series-6gb-gddr6-192-bit-ppsoc16601926g6'
 		},
 		{
-			brand: 'nvidia',
-			model: 'super-graffiti',
-			series: '3080',
-			url: 'https://www.gkinfostore.com.br/placa-de-video-pcyes-geforce-gtx-1660-super-graffiti-series-6gb-gddr6-192-bit-ppsoc16601926g6'
-		},
-		{
 			brand: 'pny',
 			model: 'uprising-epic-x',
 			series: '3080',
