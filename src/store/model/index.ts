@@ -19,6 +19,7 @@ import {Currys} from './currys';
 import {Ebuyer} from './ebuyer';
 import {Evga} from './evga';
 import {EvgaEu} from './evga-eu';
+import {GKInfoStore} from './gkinfostore';
 import {Gamestop} from './gamestop';
 import {Kabum} from './kabum';
 import {Mediamarkt} from './mediamarkt';
@@ -68,6 +69,7 @@ const masterList = new Map([
 	[EvgaEu.name, EvgaEu],
 	[Kabum.name, Kabum],
 	[Gamestop.name, Gamestop],
+	[GKInfoStore.name, GKInfoStore],
 	[Mediamarkt.name, Mediamarkt],
 	[MicroCenter.name, MicroCenter],
 	[Newegg.name, Newegg],
