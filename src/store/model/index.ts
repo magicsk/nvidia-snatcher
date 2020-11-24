@@ -16,6 +16,7 @@ import {Caseking} from './caseking';
 import {Ccl} from './ccl';
 import {Coolblue} from './coolblue';
 import {Currys} from './currys';
+import {Datacomp} from './datacomp';
 import {Ebuyer} from './ebuyer';
 import {Evga} from './evga';
 import {EvgaEu} from './evga-eu';
@@ -64,6 +65,7 @@ const masterList = new Map([
 	[Ccl.name, Ccl],
 	[Coolblue.name, Coolblue],
 	[Currys.name, Currys],
+	[Datacomp.name, Datacomp],
 	[Ebuyer.name, Ebuyer],
 	[Evga.name, Evga],
 	[EvgaEu.name, EvgaEu],

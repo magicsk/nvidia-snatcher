@@ -72,6 +72,7 @@ export function getProductLinksBuilder(options: LinksBuilderOptions) {
 }
 
 export function parseCard(name: string): Card | null {
+	name = name.replace(/-+/g, ' ');
 	name = name.replace(/\w+-\w+-[^ ]+/g, '');
 	name = name.replace(/\([^(]*\)/g, '');
 	name = name.replace(/, .+$/, '');
